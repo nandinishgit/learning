@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* 1. Base CSS Grid Layout */
+.dashboard-container {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas:
+        "header  header"
+        "sidebar main";
+}
+
+/* Header Flexbox */
+.header {
+    grid-area: header;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.search-bar input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    background-color: #3498db;
+    border-radius: 50%;
+}
+
+/* Sidebar */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #2c3e50;
+    padding: 20px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav li {
+    margin-bottom: 15px;
+}
+
+.sidebar nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* Main Content Area */
+.main-content {
+    grid-area: main;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Flexbox Metric Cards */
+.cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.card {
+    flex: 1 1 calc(25% - 15px);
+    min-width: 150px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.card h3 {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card .metric {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Content Panels Layout */
+.content-panels {
+    display: flex;
+    gap: 20px;
+}
+
+.panel {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.panel h2 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.chart-section {
+    flex: 2;
+}
+
+.activity-section {
+    flex: 1;
+}
+
+.chart-box {
+    height: 180px;
+    background-color: #eaedd0;
+    border: 2px dashed #b0b875;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+}
+
+.activity-list {
+    list-style: none;
+}
+
+.activity-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+/* Table Section */
+.table-section {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #555;
+}
+
+/* ===================================================
+   4. Media Queries (Responsiveness Requirements)
+   =================================================== */
+
+/* Tablet Layout (<= 1024px) */
+@media (max-width: 1024px) {
+    .content-panels {
+        flex-direction: column;
+    }
+}
+
+/* Mobile Layout (<= 768px) */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "sidebar";
+    }
+
+    .sidebar {
+        padding: 15px;
+    }
+
+    .sidebar nav ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .sidebar nav li {
+        margin-bottom: 0;
+    }
+
+    .card {
+        flex: 1 1 100%;
+    }
+}
+
+/* Small Mobile Layout (<= 480px) */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+}

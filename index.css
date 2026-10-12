@@ -1,0 +1,20 @@
+.a { 
+    color:rgb(12, 196, 196);
+    font-sixe: 32px;
+}
+.b {
+    background-color:blueviolet;
+}
+#c {
+    font-weight: 700;
+    color:rgb(6, 2, 59);
+}
+
+/* Group Selector , */
+/* juat to give some css multiple different tags in this we can use id,tag,class selector */
+h2,
+h3,
+.b,
+#c {
+    color:brown;
+}
